@@ -16,6 +16,8 @@ if __name__ == '__main__':
 
 	rad = 1
 
+	st = time.time()
+
 	A, Aeq, b, beq = build_initial_constr(N, M)
 
 	f = build_C(in_vals, out_vals, rad)
@@ -23,6 +25,9 @@ if __name__ == '__main__':
 	K = 50
 	x, xv = MBest(f, A, b, Aeq, beq, K)
 
+	rt = time.time() - st
+
+	print('Finished in ', np.round(rt, 2), 'seconds.')
 	print(xv)
 
 
